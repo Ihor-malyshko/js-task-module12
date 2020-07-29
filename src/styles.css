@@ -18,3 +18,12 @@ body {
    */
   background-image: url('./images/bg-pattern.png');
 }
+
+.find-country {
+  height: 30px;
+  font-size: 25px;
+}
+
+.list-countries {
+  font-size: 30px;
+}
