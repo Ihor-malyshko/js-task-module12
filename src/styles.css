@@ -27,3 +27,7 @@ body {
 .list-countries {
   font-size: 30px;
 }
+
+.pnotify {
+  position: absolute;
+}

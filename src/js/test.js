@@ -1,15 +1,19 @@
 import debounce from 'lodash.debounce';
+import markupCountry from './markup-country';
 import getCountry from './fetch';
 
-const inputRef = document.querySelector('input');
-console.dir(inputRef);
+const refs = {
+  findCountry: document.querySelector('.find-country'),
+};
 
 let nameCoutry = '';
 
-inputRef.addEventListener(
+refs.findCountry.addEventListener(
   'input',
   debounce(() => {
-    nameCoutry = inputRef.value;
-    getCountry(nameCoutry);
-  }, 300),
+    nameCoutry = refs.findCountry.value;
+    if (nameCoutry !== '') {
+      getCountry(nameCoutry).then(markupCountry);
+    }
+  }, 500),
 );
