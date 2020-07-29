@@ -7,17 +7,19 @@ const refs = {
   listCountries: document.querySelector('.list-countries'),
 };
 
-const name = 'sw';
-
-getCountry(name);
+function clearArea() {
+  refs.country.innerHTML = '';
+  refs.listCountries.innerHTML = '';
+}
 
 function getCountry(name) {
+  clearArea();
   const url = `https://restcountries.eu/rest/v2/name/${name}`;
   fetch(url)
     .then(response => response.json())
     .then(data => {
       if (data.length > 10) {
-        console.log('error');
+        console.log('so many');
       }
       if (1 < data.length && data.length < 10) {
         const markup = ListTemplate(data);
@@ -33,3 +35,5 @@ function getCountry(name) {
     })
     .catch(error => console.log(error));
 }
+
+export default getCountry;

@@ -1,9 +1,15 @@
-// https://restcountries.eu/rest/v2/name/{name}
+import debounce from 'lodash.debounce';
+import getCountry from './fetch';
 
-// const name = 'sw';
-// const url = `https://restcountries.eu/rest/v2/name/${name}`;
+const inputRef = document.querySelector('input');
+console.dir(inputRef);
 
-// fetch(url)
-//   .then(recponse => recponse.json())
-//   .then(console.log)
-//   .catch(error => console.log(error));
+let nameCoutry = '';
+
+inputRef.addEventListener(
+  'input',
+  debounce(() => {
+    nameCoutry = inputRef.value;
+    getCountry(nameCoutry);
+  }, 300),
+);
