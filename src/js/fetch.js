@@ -1,6 +1,4 @@
 function getCountry(name) {
-  console.log(name);
-
   const url = `https://restcountries.eu/rest/v2/name/${name}`;
   return fetch(url)
     .then(response => response.json())
